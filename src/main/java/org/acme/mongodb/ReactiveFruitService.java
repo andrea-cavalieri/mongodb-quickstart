@@ -36,6 +36,6 @@ public class ReactiveFruitService {
     }
 
     private ReactiveMongoCollection<Document> getCollection() {
-        return mongoClient.getDatabase("fruit").getCollection("reactive_fruit");
+        return mongoClient.getDatabase("sampledb").getCollection("reactive_fruit");
     }
 }
