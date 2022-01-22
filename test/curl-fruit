@@ -1,0 +1,8 @@
+curl --location --request POST 'http://example-andrea-cavalieri-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/reactive_fruits' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: 128a7d5bdb76ed5242d5518ab619e3eb=b4d9aa7ac74c86ded285bba265aab83b' \
+--data-raw '{
+    "name": "cava",
+    "description": "description",
+    "id": "1"
+}'

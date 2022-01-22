@@ -37,8 +37,8 @@ components:
         - name: m2
           path: /home/user/.m2
       endpoints:
-        - name: '8080-http'
-          targetPort: 8080
+        - name: '8081-http'
+          targetPort: 8081
   - name: m2
     volume:
       size: 3Gi
