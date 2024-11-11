@@ -1,3 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-init-script
+  labels:
+    app: mongodb
+data:
+  init-mongo.js: |
+    db = db.getSiblingDB('sampledb');
+    db.createCollection('test_collection');
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,9 +38,15 @@ spec:
           volumeMounts:
             - name: mongo-storage
               mountPath: /data/db
+            - name: init-script
+              mountPath: /docker-entrypoint-initdb.d
+              readOnly: true
       volumes:
         - name: mongo-storage
           emptyDir: {}
+        - name: init-script
+          configMap:
+            name: mongo-init-script
 ---
 apiVersion: v1
 kind: Service
